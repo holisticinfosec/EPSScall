@@ -30,7 +30,7 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
         "Input", strong("EPSS greater than"), "as 0.nn and", 
         strong("Percentile greater than"), "as 0.nn"),
     p(strong("Project:"),br(),
-      a("GitHub", href = "https://www.first.org/epss/model"), br(),
+      a("GitHub", href = "https://github.com/holisticinfosec/EPSScall"), br(),
       a("Author", href = "https://twitter.com/holisticinfosec"))),
    
     mainPanel(
