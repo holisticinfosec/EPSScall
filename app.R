@@ -1,3 +1,7 @@
+# EPSScall
+# Russ McRee, russ at holisticinfosec dot io
+# v1 09JUN2022
+
 library(DT)
 library(jsonlite)
 library(plotly)
@@ -51,7 +55,8 @@ ui <- fluidPage(theme = shinytheme("cerulean"),
                            h3("Search Results"),
                            DT::dataTableOutput("tblOutput")),
                   tabPanel("Timeline", br(), dataTableOutput("timeOutput")),
-                  tabPanel("Graph", br(), plotlyOutput("graph"),
+                  tabPanel("Graph", br(), br(), p("Currently, only one CVE can be plotted at a time."),
+                           plotlyOutput("graph"),
                   tags$style(type="text/css",
                              ".shiny-output-error { visibility: hidden; }",
                              ".shiny-output-error:before { visibility: hidden; }"
@@ -113,7 +118,7 @@ server <- function(input, output, session) {
      y <- df$epss
      data <- data.frame(x, y)
      plot_ly(data, x = ~x, y = ~y, type = 'scatter', mode = 'lines')%>% 
-     layout(title= list(text = "Timeline"), 
+     layout(title = list(text = "Timeline", x = 0.3), 
             xaxis = list(title = list(text ='Date')),
             yaxis = list(title = list(text ='EPSS')))
   })
